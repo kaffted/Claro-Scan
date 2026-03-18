@@ -1,0 +1,62 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    namespace 'com.claro.scan'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.claro.scan"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.11.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    
+    // Motor para PDF
+    implementation 'com.tom-roush:pdfbox-android:2.0.27.0'
+}
+Dale a "Commit changes".
+
+2. El archivo del Proyecto Global
+Necesitas un segundo archivo pequeño en la raíz (la carpeta principal) de tu repositorio.
+
+Crea un nuevo archivo llamado: build.gradle (en la carpeta principal, no dentro de app).
+
+Pega esto:
+
+Gradle
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.2.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.22"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
